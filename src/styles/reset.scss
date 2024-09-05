@@ -10,8 +10,24 @@
   color: $gray;
 }
 
+a{
+    text-decoration: none;
+}
+
+p, span{
+    @include style.textS();
+}
+
+h1{
+    @include style.titleXL();
+}
+
 h2{
     @include style.titleXL();
+}
+
+h3{
+    @include style.titleL();
 }
 
 .button{
