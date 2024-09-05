@@ -26,21 +26,40 @@
 
 
 
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+// import React, { useEffect, useRef } from 'react';
+// import { gsap } from 'gsap';
+// import heroBanner from './components/heroBanner';
 
-function App() {
-  const containerRef = useRef(null);
+// function App() {
+//   const containerRef = useRef(null);
 
-  useEffect(() => {
-    gsap.to(containerRef.current, { duration: 3, x: 500 });
-  }, []);
+//   useEffect(() => {
+//     gsap.to(containerRef.current, { duration: 3, x: 500 });
+//   }, []);
 
+//   return (
+//     <div>
+//       <heroBanner />
+//     </div>
+//     // <div className="container" ref={containerRef}>
+//     //   <h1>Bonjour avec GSAP et SCSS !</h1>
+//     // </div>
+//   );
+// }
+
+// export default App;
+
+import React from 'react';
+import HeroBanner from './components/HeroBanner';
+
+const App = () => {
   return (
-    <div className="container" ref={containerRef}>
-      <h1>Bonjour avec GSAP et SCSS !</h1>
+    <div>
+      <HeroBanner />
+      {/* Tu ajouteras plus de sections ici */}
     </div>
   );
-}
+};
 
 export default App;
+
