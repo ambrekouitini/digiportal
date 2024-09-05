@@ -1,0 +1,19 @@
+@use "style" as style;
+@import "style";
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'Inter', sans-serif;
+  color: $gray;
+}
+
+h2{
+    @include style.titleXL();
+}
+
+.button{
+  @include style.simpleButton();
+}

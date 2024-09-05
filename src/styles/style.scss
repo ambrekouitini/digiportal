@@ -1,0 +1,237 @@
+// Fonts
+
+//  Satoshi
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Light.ttf') format('truetype');
+  font-weight: 300;  /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 400;  /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Medium.ttf') format('truetype');
+  font-weight: 500;  /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;  /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Black.ttf') format('truetype');
+  font-weight: 900;  /* Black */
+  font-style: normal;
+}
+
+// Inter 
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Thin.ttf') format('truetype');
+    font-weight: 100;  /* Thin */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-ExtraLight.ttf') format('truetype');
+    font-weight: 200;  /* Extra Light */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Light.ttf') format('truetype');
+    font-weight: 300;  /* Light */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;  /* Regular */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;  /* Medium */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;  /* Semi Bold */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: 700;  /* Bold */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-ExtraBold.ttf') format('truetype');
+    font-weight: 800;  /* Extra Bold */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Black.ttf') format('truetype');
+    font-weight: 900;  /* Black */
+    font-style: normal;
+  }
+  
+
+
+// Colors
+
+$blue: #005CA8;
+$yellow: #F9D224;
+
+$black: #141414;
+$gray: #333333;
+$medium-gray: #A5A5A5;
+$light-gray: #DFE3E6;
+$medium-white: #F9F8F4;
+$white: #FFFFFF;
+
+
+
+// Mixins
+
+@mixin flex(){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+// Buttons
+  
+@mixin simpleButton(){
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border: 2px solid $gray;
+    background: $yellow;
+    width: 60px;
+    height: 60px;
+    padding: 0 20px;
+
+    &:before{
+        content: '';
+        background-image: url('../assets/images/arrow.svg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 12px;
+        height: 12px;
+    }
+
+    &:hover{
+        background: transparent;
+    }
+}
+  
+@mixin textButton($text){
+    @include simpleButton();
+    width: fit-content;
+    gap: 8px;
+
+    &:after{
+        content: '#{$text}';
+        font-size: 24px;
+        font-weight: 700;
+        color: $gray;
+        text-transform: uppercase;
+        margin-left: 10px;
+    }
+}
+
+
+//  Texts
+
+// Paragraphs
+@mixin textXS(){
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@mixin textS(){
+    font-size: 24px;
+    font-weight: 400;
+}
+
+@mixin textM(){
+    font-size: 32px;
+    font-weight: 400;
+}
+
+@mixin textL(){
+    font-size: 48px;
+    font-weight: 400;
+}
+
+
+// Highlights
+@mixin highlight(){
+    font-size: 32px;
+    font-weight: 500;
+}
+
+// Titles
+@mixin title(){
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+@mixin titleS(){
+    font-size: 32px;
+}
+
+@mixin titleM(){
+    font-size: 48px;
+    @include title();
+}
+
+@mixin titleL(){
+    font-size: 64px;
+    @include title();
+}
+
+@mixin titleXL(){
+    font-size: 96px;
+    @include title();
+}
+
+  
+  
+@mixin  breakpoint($width){
+    @media screen and (max-width: $width){
+        @content;
+    }
+}

@@ -1,0 +1,6 @@
+@use "style" as style;
+@use "reset";
+
+.textButton{
+    @include style.textButton('Click me');
+}
