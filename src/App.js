@@ -51,12 +51,13 @@
 
 import React from 'react';
 import HeroBanner from './components/HeroBanner';
+import Ressources from './components/Ressources';
 
 const App = () => {
   return (
     <div>
       <HeroBanner />
-      {/* Tu ajouteras plus de sections ici */}
+      <Ressources />
     </div>
   );
 };

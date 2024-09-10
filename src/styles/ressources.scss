@@ -1,0 +1,55 @@
+@use "style" as style;
+@use "reset";
+
+.ressources{
+    padding: 64px 0;
+
+    .ressourcesText{
+        max-width: 1280px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .titleDiv{
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 32px;
+        }
+
+        p{
+            @include style.textM();
+        }
+    }
+
+    .ressourcesContent{
+        border-top: 1px solid style.$gray;
+        border-bottom: 1px solid style.$gray;
+
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            max-width: 1280px;
+            margin: auto;
+
+            a{
+                @include style.flex();
+                flex-direction: column;
+                border-left: 1px solid style.$gray;
+
+                &:last-child{
+                    border-right: 1px solid style.$gray;
+                }
+
+                h3{
+                    @include style.highlight();
+                    text-transform: none;
+                    text-align: center;
+                    margin: 16px 0;
+                }
+            }
+        }
+    }
+}
+
