@@ -54,7 +54,8 @@ import HeroBanner from './components/HeroBanner';
 import RevealText from './components/RevealText';
 import Description from './components/Description';
 import ScrollProvider from './components/ScrollProvider';
-import Ressources from './components/ressources';
+import Ressources from './components/Ressources';
+import Equipe from './components/Equipe';
 
 const App = () => {
   return (
@@ -63,6 +64,7 @@ const App = () => {
       <RevealText />
       <Description />
       <Ressources />
+      <Equipe />
     </div>
   );
 };
