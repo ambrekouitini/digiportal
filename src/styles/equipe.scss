@@ -37,6 +37,15 @@
             h2 {
                 color: style.$white;
             }
+
+            .button {
+                @include style.simpleButton();
+            }
+            
+            .button:hover {
+                background: style.$white;
+            }
+        
         }
 
         &:hover {
