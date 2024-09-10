@@ -51,12 +51,17 @@
 
 import React from 'react';
 import HeroBanner from './components/HeroBanner';
-import Ressources from './components/Ressources';
+import RevealText from './components/RevealText';
+import Description from './components/Description';
+import ScrollProvider from './components/ScrollProvider';
+import Ressources from './components/ressources';
 
 const App = () => {
   return (
     <div>
       <HeroBanner />
+      <RevealText />
+      <Description />
       <Ressources />
     </div>
   );
