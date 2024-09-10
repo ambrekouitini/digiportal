@@ -94,5 +94,10 @@
             }
         }
     }
+
+    > a{
+        @include style.textButton('Toutes nos ressources');
+        margin: auto;
+    }
 }
 

@@ -16,6 +16,7 @@ const App = () => {
       <RevealText />
       <Description />
       <Ressources />
+      <Footer />
     </div>
   );
 };
