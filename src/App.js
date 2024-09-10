@@ -56,6 +56,7 @@ import Description from './components/Description';
 import ScrollProvider from './components/ScrollProvider';
 import Ressources from './components/Ressources';
 import Equipe from './components/Equipe';
+import Contributions from './components/Contributions';
 
 const App = () => {
   return (
@@ -64,6 +65,7 @@ const App = () => {
       <RevealText />
       <Description />
       <Ressources />
+      <Contributions />
       <Equipe />
     </div>
   );
