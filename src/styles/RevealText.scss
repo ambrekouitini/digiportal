@@ -1,0 +1,29 @@
+@use "style" as style;
+@use "reset";
+
+.textSection {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding-left: calc((100vw - 1280px) / 2) !important;
+  padding-right: calc((100vw - 1280px) / 2) !important;
+
+  .reveal-type  {
+    @include style.textL();
+    color: #818181; // Couleur par défaut
+  }
+
+  span {
+    color: style.$yellow;
+    @include style.textL();
+    font-weight: 500;
+    color: #818181;
+    .char {
+      color: style.$yellow; 
+      @include style.textL();
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: #818181;
+    }
+  }
+}

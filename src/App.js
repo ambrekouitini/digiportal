@@ -51,13 +51,19 @@
 
 import React from 'react';
 import HeroBanner from './components/HeroBanner';
+import RevealText from './components/RevealText';
+import Description from './components/Description';
+import ScrollProvider from './components/ScrollProvider';
 
 const App = () => {
   return (
-    <div>
-      <HeroBanner />
-      {/* Tu ajouteras plus de sections ici */}
-    </div>
+    <ScrollProvider>
+      <div>
+        <HeroBanner />
+        <RevealText />
+        <Description />
+      </div>
+    </ScrollProvider>
   );
 };
 
