@@ -10,6 +10,7 @@ import Equipe from './components/Equipe';
 import Contributions from './components/Contributions';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
+import Initiatives from './components/Initiatives';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <RevealText />
       <Projects />
       <Description />
+      <Initiatives />
       <Ressources />
       <Contributions />
       <Equipe />
