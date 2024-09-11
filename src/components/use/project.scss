@@ -1,2 +1,34 @@
 @use "../../styles/style" as style;
 @use "../../styles/reset";
+
+.project{
+    width: 100%;
+    position: sticky;
+    // top: 0;
+
+
+    .projectContent{
+        // @include style.flex();
+        background-color: style.$gray;
+        padding: 16px 0;
+
+        div{
+            @include style.flex();
+            border-bottom: 1px solid style.$white;
+            padding: 8px 64px;
+        }
+
+        h3{
+            @include style.highlight();
+            font-family: 'Inter', sans-serif;
+            text-transform: none;
+            color: style.$white;
+        }
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
