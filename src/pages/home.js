@@ -1,6 +1,7 @@
 // export default App;
 
 import React from 'react';
+
 import HeroBanner from '../components/home/HeroBanner';
 import RevealText from '../components/home/RevealText';
 import Description from '../components/home/Description';
@@ -10,6 +11,7 @@ import Equipe from '../components/home/Equipe';
 import Contributions from '../components/home/Contributions';
 import Footer from '../components/home/Footer';
 import Projects from '../components/home/Projects';
+import Initiatives from '../components/home/Initiatives';
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
       <Projects />
       <Description />
       <Ressources />
+      <Initiatives />
       <Contributions />
       <Equipe />
       <Footer />
