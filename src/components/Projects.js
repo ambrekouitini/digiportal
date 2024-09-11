@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import SecondPage from '../pages/projects';
 import '../styles/projects.scss';
 import Project from './use/project';
 
@@ -30,7 +32,7 @@ const Projects = () => {
     <div className="projects">
       <div className="titleDiv">
         <h2>Nos projets</h2>
-        <div className="button"></div>
+        <Link to="/projects"><div className="button"></div></Link>
       </div>
       {projectsData.map((project, index) => (
         <Project
