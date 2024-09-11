@@ -1,14 +1,42 @@
-import { useState } from 'react';
-import '../../styles/header.scss';
+import React, { useEffect } from 'react';
+import '../../styles/projects/header.scss';
 
-const Header = () => {
+// Images
+import search from '../../assets/images/search.svg';
+import sort from '../../assets/images/sort.svg';
 
+const Header = ({ selectedCategory, setSelectedCategory }) => {
+    const changeState = (category) => {
+        setSelectedCategory(category);
+    }
 
-return (
-    <div className="header">
+    useEffect(() => {
+        const spans = document.querySelectorAll('.order span');
+        spans.forEach(span => {
+            if (span.textContent === selectedCategory) {
+                span.style.backgroundColor = '#F9D224';
+            } else {
+                span.style.backgroundColor = 'white';
+            }
+        });
+    }, [selectedCategory]);
 
-    </div>
-  );
+    return (
+        <div className="header">
+            <h1>Nos projets</h1>
+            <div className="navigation">
+                <div className="order">
+                    <span onClick={() => changeState('Tous')}>Tous</span>
+                    <span onClick={() => changeState('Site web')}>Site web</span>
+                    <span onClick={() => changeState('Application')}>Application</span>
+                </div>
+                <div className="search">
+                    <img src={search} alt="search" />
+                    <img src={sort} alt="sort" />
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Header;

@@ -16,6 +16,7 @@ import Initiatives from '../components/home/Initiatives';
 const App = () => {
   return (
     <div>
+      <ScrollProvider />
       <HeroBanner />
       <RevealText />
       <Projects />
