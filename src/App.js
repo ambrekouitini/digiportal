@@ -7,6 +7,7 @@ import Description from './components/Description';
 // import ScrollProvider from './components/ScrollProvider';
 import Ressources from './components/Ressources';
 import Footer from './components/Footer';
+import Projects from './components/Projects';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
     <div>
       <HeroBanner />
       <RevealText />
+      <Projects />
       <Description />
       <Ressources />
       <Footer />
