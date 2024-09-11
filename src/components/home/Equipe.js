@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../styles/equipe.scss';
+import '../../styles/home/equipe.scss';
 
 const AnimatedMarquee = ({ text }) => {
   const marqueeRef = useRef(null);

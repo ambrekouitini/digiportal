@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SecondPage from '../pages/projects';
-import '../styles/projects.scss';
-import Project from './use/project';
+import SecondPage from '../../pages/projects';
+import '../../styles/home/projects.scss';
+import Project from '../use/project';
 
 // Images
-import imgBeauterra from '../assets/images/Beauterra.png';
-import imgGrandLarge from '../assets/images/GrandLarge.png';
-import imgIntranet from '../assets/images/Intranet.png';
+import imgBeauterra from '../../assets/images/Beauterra.png';
+import imgGrandLarge from '../../assets/images/GrandLarge.png';
+import imgIntranet from '../../assets/images/Intranet.png';
 
 const Projects = () => {
   const projectsData = [

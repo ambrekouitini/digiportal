@@ -1,4 +1,4 @@
-import './project.scss';
+import '../../styles/use/project.scss';
 
 const Project = ({ projectName, projectLink, projectImage, index }) => {
 

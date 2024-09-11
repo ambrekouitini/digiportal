@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import '../styles/heroBanner.scss';
+import '../../styles/home/heroBanner.scss';
 
 const SectionOne = () => {
   const canvasRefs = [useRef(null), useRef(null), useRef(null)];

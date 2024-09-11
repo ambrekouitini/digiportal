@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import '../styles/Description.scss';
+import '../../styles/home/Description.scss';
 
 // Importation des images
-import usImage from '../assets/images/us.png';
-import projectsImage from '../assets/images/project.png';
-import ideasImage from '../assets/images/ideas.png';
+import usImage from '../../assets/images/us.png';
+import projectsImage from '../../assets/images/project.png';
+import ideasImage from '../../assets/images/ideas.png';
 
 const Description = () => {
     const descriptionRef = useRef(null);

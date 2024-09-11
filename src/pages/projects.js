@@ -1,8 +1,11 @@
-// SecondPage.js
+// projects.js
 import React from 'react';
 
-function SecondPage() {
-  return <h1>Ceci est la deuxième page</h1>;
-}
 
-export default SecondPage;
+const App = () => {
+  return (
+    <h1>Nos projets</h1>
+  );
+};
+
+export default App;
