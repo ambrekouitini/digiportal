@@ -2,6 +2,9 @@
 @use "reset";
 
 .ressources{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
     padding: 64px 0;
 
     .ressourcesText{
@@ -34,22 +37,67 @@
             margin: auto;
 
             a{
-                @include style.flex();
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
                 flex-direction: column;
+                overflow: hidden;
                 border-left: 1px solid style.$gray;
+                height: 500px;
+                background-color: style.$white;
+                transition: all 0.3s ease-out;
 
                 &:last-child{
                     border-right: 1px solid style.$gray;
                 }
 
+                &:hover{
+                    background-color: style.$gray;
+
+
+                    h3{
+                        color: style.$gray;
+                        text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+                        1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+                        font-size: 128px;
+                        transform: translate(-50%, calc(-50% - 32px));
+                    }
+
+                    span{
+                        color: style.$white;
+                        transform: translateY(-32px);
+                    }
+                }
+
                 h3{
                     @include style.highlight();
+                    font-family: 'Inter', sans-serif;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-wrap: nowrap;
                     text-transform: none;
                     text-align: center;
-                    margin: 16px 0;
+                    line-height: 100%;
+                    transition: all 0.3s ease-out;
+                }
+
+                span{
+                    @include style.textS();
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                    margin-bottom: 32px;
+                    transition: all 0.3s ease-out;
                 }
             }
         }
+    }
+
+    > a{
+        @include style.textButton('Toutes nos ressources');
+        margin: auto;
     }
 }
 

@@ -7,6 +7,7 @@
   @include style.flex();
   cursor: url('../assets/images/cursor.svg'), auto;
   position: relative;
+  border-bottom: 2px solid style.$yellow;
 
   canvas {
     position: absolute;

@@ -1,0 +1,55 @@
+@use "style" as style;
+@use "reset";
+
+.footer{
+    background-color: style.$gray;
+    padding-top: 48px;
+
+    .container{
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        max-width: 1280px;
+        border: solid style.$white;
+        border-width: 1px 1px 0 1px;
+        margin: auto;
+
+        .logo{
+            display: flex;
+            padding: 48px 48px 32px 48px;
+
+            span{
+                @include style.textM();
+                font-family: 'Satoshi', sans-serif;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: style.$white;
+                border-left: 2px solid style.$white;
+                // padding-bottom: 24px;
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+
+                &:nth-child(2){
+                    color: style.$yellow;
+                }
+            }
+        }
+
+        .links{
+            @include style.flex();
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 64px;
+            padding: 48px 128px 48px 32px; 
+            border-left: 1px solid style.$white;
+
+            a{
+                @include style.textS();
+                font-weight: 600;
+                text-transform: uppercase;
+                color: style.$yellow;
+                border-bottom: 1px solid style.$white;
+                width: 100%;
+            }
+        }
+    }
+}

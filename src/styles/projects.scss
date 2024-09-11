@@ -1,0 +1,17 @@
+@use "style" as style;
+@use "reset";
+
+.projets{
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .titleDiv{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 32px;
+    }
+}

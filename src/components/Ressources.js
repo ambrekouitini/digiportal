@@ -4,18 +4,7 @@ import '../styles/ressources.scss';
 const Ressources = () => {
 
     const [containerRef, setRef] = useState([
-        {
-            title: "Livre blanc digital",
-            link: "#"
-        },
-        {
-            title: "Charte graphique",
-            link: "#"
-        },
-        {
-            title: "Design system",
-            link: "#"
-        }
+        {title: "Livre blanc digital",link: "#"},{title: "Charte graphique",link: "#"},{title: "Design system",link: "#"}
     ]);
 
 return (
@@ -39,6 +28,7 @@ return (
                 })}
             </div>
         </div>
+        <a href="#"></a>
     </section>
   );
 };
