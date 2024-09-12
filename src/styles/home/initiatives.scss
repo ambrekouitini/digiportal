@@ -1,24 +1,116 @@
 @use "../style" as style;
 @use "../reset";
 
-.initiatives{
+.initiatives {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding: 64px 0;
-
-    .initiativesText{
-        max-width: 1280px;
-        margin: auto;
+    padding: 48px 0;
+    max-width: 1280px;
+    margin: auto;
+    .initiativesText {
         display: flex;
         flex-direction: column;
         gap: 32px;
 
-        .titleDiv{
+        .titleDiv {
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
             gap: 32px;
+
+            .button {
+                @include style.simpleButton();
+            }
+        }
+    }
+
+    .initiativesContent {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1280px;
+        margin: auto;
+
+        .containerLeft, .containerRight {
+            flex: 1;
+        }
+
+        .containerLeft {
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+
+        .containerRight {
+            display: grid;
+            grid-template-columns: 1fr;
+
+            .singleCard {
+                @include style.flex();
+                cursor: pointer;
+                padding: 24px;
+                border-bottom: 1px solid style.$gray;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: style.$gray;
+
+                    h3 {
+                        color: style.$white;
+                    }
+
+                    span {
+                        color: style.$white;
+                    }
+                }
+
+                h3 {
+                    @include style.titleM();
+                }
+
+                span {
+                    @include style.textM();
+                    font-weight: 300;
+                }
+
+                &.expanded {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0px 32px 0px 48px;
+                    justify-content: flex-start;
+                    gap: 32px;
+                    background-color: style.$gray;
+
+                    .cardHeader {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 64px 0px;
+
+                        h3 {
+                            @include style.titleM();
+                            color: style.$white;
+                        }
+
+                        button {
+                            @include style.closeButton();
+
+                            &:hover {
+                                color: #333;
+                            }
+                        }
+                    }
+
+                    p {
+                        @include style.textS();
+                        color: style.$white;
+                    }
+                }
+            }
         }
     }
 }
