@@ -2,26 +2,65 @@
 @use "../reset";
 
 .projectCard{
-    > div{
+    .container{    
         @include style.flex();
-        padding: 32px;
-        background-color: #F9F8F480;
+        align-items: flex-end;
+        position: sticky;
+        top: 16px;
 
-        .informations{
+        &.small{
+            height: 33%;
+        }
+
+        &.medium{
+            height: 66%;
+        }
+
+        &.big{
+            height: 100%;
+        }
+
+
+        > div{
+            position: relative;
             @include style.flex();
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 12px;
+            padding: 32px 32px 32px 96px;
+            background-color: #F9F8F480;
+            width: 100%;
 
-            h2{
-                @include style.textS();
-                font-family: 'inter', sans-serif;
-                text-transform: none;
-                font-weight: 600;
+            .informations{
+                @include style.flex();
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 16px;
+
+                h2{
+                    @include style.textS();
+                    font-family: 'inter', sans-serif;
+                    text-transform: none;
+                    font-weight: 600;
+                }
+
+                span{
+                    @include style.textS();
+                }
             }
 
-            span{
-                @include style.textS();
+            .type{
+                @include style.flex();
+                @include style.highlight();
+                font-family: 'satoshi', sans-serif;
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+                justify-content: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 64px;
+                height: 100%;
+                text-align: center;
+                color: style.$white;
+                background-color: style.$gray;
             }
         }
     }

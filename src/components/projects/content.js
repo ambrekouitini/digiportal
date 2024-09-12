@@ -15,6 +15,7 @@ const Content = ({ projects }) => {
                     year={project.year}
                     type={project.type}
                     route={project.route}
+                    size={project.size}
                 />
             ))}
         </div>

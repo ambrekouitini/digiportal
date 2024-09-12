@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import Header from '../components/projects/header';
 import Content from '../components/projects/content';
+import '../components/Footer';
+import Footer from '../components/Footer';
+
 
 const ProjectsPage = () => {
     const [selectedCategory, setSelectedCategory] = useState('Tous');
@@ -15,6 +18,7 @@ const ProjectsPage = () => {
             year: 2024,
             type: 'Site web',
             route: '/beauterra',
+            size: 'medium'
         },
         {
             title: 'Conception et développements',
@@ -23,6 +27,7 @@ const ProjectsPage = () => {
             year: 2024,
             type: 'Application',
             route: '/grandlarge',
+            size: 'big'
         },
         {
             title: 'Conception graphique',
@@ -31,6 +36,52 @@ const ProjectsPage = () => {
             year: 2024,
             type: 'Site web',
             route: '/sitecorporate',
+            size: 'big'
+        },
+        {
+            title: 'Refonte du site B2C',
+            brand: 'Beauterra',
+            image: 'Beauterra.png',
+            year: 2024,
+            type: 'Site web',
+            route: '/beauterra',
+            size: 'small'
+        },
+        {
+            title: 'Conception et développements',
+            brand: 'Grand Large',
+            image: 'GrandLarge.png',
+            year: 2024,
+            type: 'Application',
+            route: '/grandlarge',
+            size: 'big'
+        },
+        {
+            title: 'Conception graphique',
+            brand: 'Site Corporate',
+            image: 'Intranet.png',
+            year: 2024,
+            type: 'Site web',
+            route: '/sitecorporate',
+            size: 'big'
+        },
+        {
+            title: 'Conception et développements',
+            brand: 'Grand Large',
+            image: 'GrandLarge.png',
+            year: 2024,
+            type: 'Application',
+            route: '/grandlarge',
+            size: 'medium'
+        },
+        {
+            title: 'Conception graphique',
+            brand: 'Site Corporate',
+            image: 'Intranet.png',
+            year: 2024,
+            type: 'Site web',
+            route: '/sitecorporate',
+            size: 'big'
         }
     ];
 
@@ -42,6 +93,8 @@ const ProjectsPage = () => {
         <div>
             <Header selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
             <Content projects={filteredProjects} />
+            <div style={{ height: '100vh' }}></div>
+            <Footer />
         </div>
     );
 };
