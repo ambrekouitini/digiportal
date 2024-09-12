@@ -20,19 +20,49 @@
             height: 100%;
         }
 
+        &:hover{
+            > div{
+                padding: 32px 32px 32px 96px;
+
+                .informations{
+                    max-height: 500px;  
+
+                    span{
+                        display: block;
+                    }
+                }
+
+                .button{
+                    width: 60px;
+                    height: 60px;
+                    border: 2px solid style.$gray;
+                    transform: translateX(0);
+                }
+
+                .type{
+                    width: 64px;
+                }
+            }
+        }
+
 
         > div{
             position: relative;
             @include style.flex();
-            padding: 32px 32px 32px 96px;
+            padding: 16px 16px 16px 96px;
             background-color: #F9F8F480;
             width: 100%;
+            transition: all 0.2s ease  0.1s;
+            overflow: hidden;
 
             .informations{
                 @include style.flex();
                 align-items: flex-start;
                 flex-direction: column;
                 gap: 16px;
+                max-height: 32px;
+                overflow: hidden;
+                transition: all 0.3s ease-out 0.1s;
 
                 h2{
                     @include style.textS();
@@ -43,7 +73,16 @@
 
                 span{
                     @include style.textS();
+                    // display: none;
                 }
+            }
+
+            .button{
+                width: 0;
+                height: 0;
+                border: none;
+                transform: translateX(100px);
+                transition: all 0.3s ease-out;
             }
 
             .type{
@@ -56,11 +95,13 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 64px;
+                width: 0;
                 height: 100%;
                 text-align: center;
                 color: style.$white;
                 background-color: style.$gray;
+                overflow: hidden;
+                transition: all 0.3s ease-out;
             }
         }
     }
