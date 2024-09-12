@@ -7,23 +7,27 @@
   text-align: center;
   padding-left: calc((100vw - 1280px) / 2) !important;
   padding-right: calc((100vw - 1280px) / 2) !important;
+  padding: 96px 0;
 
   .reveal-type  {
     @include style.textL();
     color: #818181; // Couleur par défaut
+    line-height: 150%; /* 72px */
   }
 
   span {
     color: style.$yellow;
     @include style.textL();
-    font-weight: 500;
+    font-weight: 400;
     color: #818181;
+    line-height: 150%; /* 72px */
     .char {
       color: style.$yellow; 
       @include style.textL();
-      font-weight: 500;
+      font-weight: 400;
       letter-spacing: 3px;
       color: #818181;
+      line-height: 150%; /* 72px */
     }
   }
 }
