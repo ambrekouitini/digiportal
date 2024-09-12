@@ -11,6 +11,7 @@ const ProjectsPage = () => {
         {
             title: 'Refonte du site B2C',
             brand: 'Beauterra',
+            image: 'Beauterra.png',
             year: 2024,
             type: 'Site web',
             route: '/beauterra',
@@ -18,6 +19,7 @@ const ProjectsPage = () => {
         {
             title: 'Conception et développements',
             brand: 'Grand Large',
+            image: 'GrandLarge.png',
             year: 2024,
             type: 'Application',
             route: '/grandlarge',
@@ -25,6 +27,7 @@ const ProjectsPage = () => {
         {
             title: 'Conception graphique',
             brand: 'Site Corporate',
+            image: 'Intranet.png',
             year: 2024,
             type: 'Site web',
             route: '/sitecorporate',

@@ -1,17 +1,20 @@
-import '../../styles/use/project.scss';
+import React from 'react';
+import '../../styles/use/projectCard.scss';
 
-const Project = ({ key, title, brand, year, type, route }) => {
+const Project = ({ title, brand, image, year, type, route }) => {
+  // Dynamic import should be done using require
+  const projectImage = require(`../../assets/images/${image}`);
 
-
-return (
-    <div className='projectCard'>
-        <div className='projectContent'>
-            <div>
-                <h3>{title}</h3>
-                <span>{brand}</span>
+  return (
+    <div className='projectCard' style={{ backgroundImage: `url(${projectImage})` }}>
+        <span>{type}</span>
+        <div>
+            <div className='informations'>
+                <h2>{title}</h2>
                 <span>{brand}</span>
                 <span>{year}</span>
             </div>
+            <a href={route} className='button'></a>
         </div>
     </div>
   );

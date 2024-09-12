@@ -11,6 +11,7 @@ const Content = ({ projects }) => {
                     key={index}
                     title={project.title}
                     brand={project.brand}
+                    image={project.image}
                     year={project.year}
                     type={project.type}
                     route={project.route}
