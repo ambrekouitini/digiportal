@@ -12,6 +12,7 @@ import Contributions from '../components/home/Contributions';
 import Footer from '../components/home/Footer';
 import Projects from '../components/home/Projects';
 import Initiatives from '../components/home/Initiatives';
+import TextLoop from '../components/home/TextLoop';
 
 const App = () => {
   return (
@@ -20,9 +21,10 @@ const App = () => {
       <HeroBanner />
       <RevealText />
       <Projects />
-      <Description />
       <Ressources />
+      <Description />
       <Initiatives />
+      <TextLoop />
       <Contributions />
       <Equipe />
       <Footer />

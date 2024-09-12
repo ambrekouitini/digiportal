@@ -155,6 +155,24 @@ $white: #FFFFFF;
         background: $white;
     }
 }
+
+@mixin closeButton(){
+    @include simpleButton();
+
+    &:before{
+        content: '';
+        background-image: url('../assets/images/close.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 12px;
+        height: 12px;
+    }
+
+    &:hover{
+        background: $white;
+    }
+}
   
 @mixin textButton($text){
     @include simpleButton();
