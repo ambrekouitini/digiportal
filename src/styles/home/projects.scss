@@ -1,12 +1,12 @@
-@use "style" as style;
-@use "reset";
+@use "../style" as style;
+@use "../reset";
 
-.projets{
+.projects{
     max-width: 1280px;
     margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    position: relative;
 
     .titleDiv{
         display: flex;

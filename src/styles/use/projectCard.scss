@@ -1,0 +1,28 @@
+@use "../style" as style;
+@use "../reset";
+
+.projectCard{
+    > div{
+        @include style.flex();
+        padding: 32px;
+        background-color: #F9F8F480;
+
+        .informations{
+            @include style.flex();
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 12px;
+
+            h2{
+                @include style.textS();
+                font-family: 'inter', sans-serif;
+                text-transform: none;
+                font-weight: 600;
+            }
+
+            span{
+                @include style.textS();
+            }
+        }
+    }
+}

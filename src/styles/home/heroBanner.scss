@@ -1,11 +1,11 @@
-@use "style" as style;
-@use "reset";
+@use "../style" as style;
+@use "../reset";
 
 .heroBanner {
   background-color: style.$gray;
   height: 100vh;
   @include style.flex();
-  cursor: url('../assets/images/cursor.svg'), auto;
+  cursor: url('../../assets/images/cursor.svg'), auto;
   position: relative;
   border-bottom: 2px solid style.$yellow;
 

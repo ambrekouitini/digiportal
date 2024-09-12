@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import '../styles/contributions.scss';
+import '../../styles/home/contributions.scss';
 
 // Import all images
-import pilotageImg from '../assets/images/pilotage.png';
-import webImg from '../assets/images/web.png';
-import graphiqueImg from '../assets/images/graphique.png';
-import prestataireImg from '../assets/images/prestataire.png';
-import guidelinesImg from '../assets/images/guidelines.png';
-import hebergementImg from '../assets/images/hebergement.png';
+import pilotageImg from '../../assets/images/pilotage.png';
+import webImg from '../../assets/images/web.png';
+import graphiqueImg from '../../assets/images/graphique.png';
+import prestataireImg from '../../assets/images/prestataire.png';
+import guidelinesImg from '../../assets/images/guidelines.png';
+import hebergementImg from '../../assets/images/hebergement.png';
 
 const Contributions = () => {
 

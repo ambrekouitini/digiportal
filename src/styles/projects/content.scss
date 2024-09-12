@@ -1,0 +1,11 @@
+@use "../style" as style;
+@use "../reset";
+
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 848px 848px 416px 632px;
+    max-width: 1280px;
+    margin: auto;
+    gap: 16px;
+}

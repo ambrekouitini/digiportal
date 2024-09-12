@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/ressources.scss';
+import '../../styles/home/ressources.scss';
 
 const Ressources = () => {
 

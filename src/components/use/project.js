@@ -1,15 +1,17 @@
-import './project.scss';
+import '../../styles/use/project.scss';
 
-const Project = ({ projectName, projectLink, projectImage }) => {
-  return (
-    <div className="project">
-      <div className="projectDiv">
-        <h3>{projectName}</h3>
+const Project = ({ projectName, projectLink, projectImage, index }) => {
+
+
+return (
+    <div className="project" style={{ top: `${index * 109}px` }}>
+        <div className="projectContent">
+            <div>
+                <h3>{projectName}</h3>
+                <a href={projectLink} target="_blank" className="button"></a>
+            </div>
+        </div>
         <img src={projectImage} alt={projectName} />
-        <a href={projectLink} target="_blank" rel="noopener noreferrer">
-          <div className="button">View Project</div>
-        </a>
-      </div>
     </div>
   );
 };
