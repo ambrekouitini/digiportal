@@ -2,23 +2,34 @@
 @use "../reset";
 
 .projectCard{
+
+    &:nth-child(4){
+        .container{
+            height: 35%;
+        }
+    }
+
+    &:nth-child(1),&:nth-child(7) {
+        .container{
+            height: 60%;
+        }
+    }
+
+    &:nth-child(2), &:nth-child(3), &:nth-child(5), &:nth-child(6), &:nth-child(8){
+        .container{
+            height: 100%;
+        }
+    }
+
+
     .container{    
         @include style.flex();
         align-items: flex-end;
         position: sticky;
         top: 16px;
-
-        &.small{
-            height: 33%;
-        }
-
-        &.medium{
-            height: 66%;
-        }
-
-        &.big{
-            height: 100%;
-        }
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
 
         &:hover{
             > div{
@@ -50,7 +61,7 @@
             position: relative;
             @include style.flex();
             padding: 16px 16px 16px 96px;
-            background-color: #F9F8F480;
+            background-color: #f9f8f4cc;
             width: 100%;
             transition: all 0.2s ease  0.1s;
             overflow: hidden;
