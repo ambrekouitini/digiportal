@@ -1,13 +1,11 @@
 // projects.js
 
 import React, { useState, useEffect, useMemo } from 'react';
-import Header from '../components/projects/header';
+import Nav from '../components/projects/nav';
 import Content from '../components/projects/content';
 import PreFooter from '../components/projects/preFooter';
-import Footer from '../components/Footer';
 import ScrollProvider from '../components/home/ScrollProvider';
 
-// Move projects array outside of the component
 const projectsData = [
     {
         title: 'Refonte du site B2C',
@@ -91,7 +89,6 @@ const ProjectsPage = () => {
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [sortMethod, setSortMethod] = useState('noSort');
 
-    // Memoize the projects array
     const projects = useMemo(() => projectsData, []);
 
     useEffect(() => {
@@ -137,7 +134,7 @@ const ProjectsPage = () => {
     return (
         <div>
             <ScrollProvider />
-            <Header 
+            <Nav 
                 selectedCategory={selectedCategory} 
                 setSelectedCategory={setSelectedCategory} 
                 searchProject={handleSearch}
@@ -145,7 +142,6 @@ const ProjectsPage = () => {
             />
             <Content projects={filteredProjects} />
             <PreFooter />
-            <Footer />
         </div>
     );
 };

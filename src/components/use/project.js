@@ -4,7 +4,7 @@ const Project = ({ projectName, projectLink, projectImage, index }) => {
 
 
 return (
-    <div className="project" style={{ top: `${index * 109}px` }}>
+    <div className="project" style={{ top: `${index * 109 + 96}px` }}>
         <div className="projectContent">
             <div>
                 <h3>{projectName}</h3>

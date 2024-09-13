@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import '../../styles/projects/header.scss';
+import '../../styles/projects/nav.scss';
 
 // Images
 import search from '../../assets/images/search.svg';
 import sort from '../../assets/images/sort.svg';
 
-const Header = ({ selectedCategory, setSelectedCategory, searchProject, sortProject }) => {
+const Nav = ({ selectedCategory, setSelectedCategory, searchProject, sortProject }) => {
     const changeState = (category) => {
         setSelectedCategory(category);
     }
@@ -31,7 +31,7 @@ const Header = ({ selectedCategory, setSelectedCategory, searchProject, sortProj
     }
 
     return (
-        <div className="header">
+        <div className="nav">
             <h1>Nos projets</h1>
             <div className="navigation">
                 <div className="order">
@@ -60,4 +60,4 @@ const Header = ({ selectedCategory, setSelectedCategory, searchProject, sortProj
     );
 };
 
-export default Header;
+export default Nav;
