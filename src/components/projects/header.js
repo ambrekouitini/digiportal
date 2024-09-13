@@ -5,7 +5,7 @@ import '../../styles/projects/header.scss';
 import search from '../../assets/images/search.svg';
 import sort from '../../assets/images/sort.svg';
 
-const Header = ({ selectedCategory, setSelectedCategory, searchProject }) => {
+const Header = ({ selectedCategory, setSelectedCategory, searchProject, sortProject }) => {
     const changeState = (category) => {
         setSelectedCategory(category);
     }
@@ -25,6 +25,11 @@ const Header = ({ selectedCategory, setSelectedCategory, searchProject }) => {
         searchProject(e.target.value);
     }
 
+    const handleSort = (e) => {
+        console.log(e.target.value);
+        sortProject(e.target.value);
+    }
+
     return (
         <div className="header">
             <h1>Nos projets</h1>
@@ -39,7 +44,16 @@ const Header = ({ selectedCategory, setSelectedCategory, searchProject }) => {
                         <input type="text" placeholder="Rechercher un projet" onChange={handleSearch}  />
                         <img src={search} alt="search" />
                     </div>
-                    <img src={sort} alt="sort" />
+                    <div className="sortSelect">
+                        <select onChange={handleSort} defaultValue="noSort">
+                            <option value="noSort">Ne pas trier</option>
+                            <option value="young">Le plus récent</option>
+                            <option value="old">Le plus ancien</option>
+                            <option value="AZ">A-Z</option>
+                            <option value="ZA">Z-A</option>
+                        </select>
+                        <img src={sort} alt="sort" />
+                    </div>
                 </div>
             </div>
         </div>

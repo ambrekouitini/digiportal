@@ -91,6 +91,65 @@
                 }
             }
 
+
+            .sortSelect{
+                @include style.flex();
+                gap: 12px;
+                position: relative;
+
+                select{
+                    height: 50px;
+                    width: 50px;
+                    border: 2px solid transparent;
+                    font-size: 18px;
+                    letter-spacing: 1px;
+                    outline: none;
+                    border-radius: 40px;
+                    transition: all 0.5s ease-out;
+                    padding: 16px;
+                    color: rgba(0, 0, 0, 0);
+                    cursor: pointer;
+
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    text-indent: 1px;
+                    text-overflow: '';
+
+                    &:focus{
+                        width: 300px;
+                        padding: 8px 16px;
+                        border-color: style.$gray;
+                        color: style.$gray;
+                        transition: all 0.5s ease-out;
+                        cursor: text;
+                    }
+                    
+                    // > * {
+                    //     color: style.$gray;
+                    //     padding: 24px;
+                    // }
+                      
+                }
+
+                img{
+                    position: absolute;
+                    right: 16px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    pointer-events: none;
+                    transition: right 0 ease-out 0;
+                }
+            }
+
+
+
+
+
+
+
+
+
+
             img{
                 width: 32px;
                 height: 32px;
