@@ -14,4 +14,10 @@
         justify-content: flex-start;
         gap: 32px;
     }
+
+    .allProjects{
+        @include style.textButton('Tous nos projets');
+        margin: auto;
+        margin-top: 64px;
+    }
 }

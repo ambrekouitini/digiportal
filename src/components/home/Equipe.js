@@ -12,7 +12,7 @@ const AnimatedMarquee = ({ text }) => {
     marquee.appendChild(marqueeContent.cloneNode(true));
 
     let position = 0;
-    const speed = 1.5; 
+    const speed = 2.5; 
     const animate = () => {
       position -= speed;
       if (position <= -marqueeWidth) {

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/projects/header';
 import Content from '../components/projects/content';
+import PreFooter from '../components/projects/preFooter';
 import Footer from '../components/Footer';
 import ScrollProvider from '../components/home/ScrollProvider';
 
@@ -107,7 +108,7 @@ const ProjectsPage = () => {
                 searchProject={handleSearch}
                 />
             <Content projects={filteredProjects} />
-            <div style={{ height: '100vh' }}></div>
+            <PreFooter />
             <Footer />
         </div>
     );
