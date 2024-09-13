@@ -1,0 +1,64 @@
+@use "../style" as style;
+@use "../reset";
+
+.keySection {
+  max-width: 1280px;
+  margin: auto;
+
+  .mainContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 64px 0;
+
+    .containerLeft {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+
+      span {
+        @include style.titleM();
+        letter-spacing: 3.36px;
+        line-height: 100%;
+        transition: color 0.3s;
+
+        &:first-child {
+          padding-bottom: 48px;
+        }
+
+        &:hover {
+          color: style.$yellow;
+        }
+
+        &::first-letter {
+          color: style.$yellow;
+        }
+      }
+    }
+
+    .containerRight {
+      .singleKey {
+        @include style.flex();
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        padding: 64px 16px;
+        border-bottom: 1px solid style.$gray;
+        transition: background 0.3s;
+
+        &:first-child {
+          border-top: 1px solid style.$gray;
+        }
+
+        &:hover {
+          background: style.$gray;
+
+          p {
+            color: style.$white;
+          }
+        }
+      }
+    }
+  }
+}

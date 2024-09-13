@@ -1,0 +1,97 @@
+@use "../style" as style;
+@use "../reset";
+
+.canvaEquipe {
+  .titleContainer {
+    max-width: 1280px;
+    margin: auto;
+  }
+
+  .cardContainer {
+    height: 800px;
+    background: style.$gray;
+    padding: 64px 80px;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .singleCard {
+
+    @include style.flex();
+    padding: 24px;
+    gap: 24px;
+    border-radius: 24px;
+    border: 1px solid style.$gray;
+    background: style.$white;
+    position: absolute;
+    cursor: move;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    max-width: 550px;
+    min-height: 300px;
+
+    .cardImage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        padding-bottom: 16px;
+      }
+
+      span {
+        text-align: center;
+        font-family: Satoshi;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+
+    .cardTextContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
+      
+      .TagContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 16px;
+        align-items: center;
+
+        .tag {
+            display: flex;
+            padding: 4px 8px;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px;
+            border-radius: 24px;
+            border: 1px solid var(--Gris-fonc, #333);
+
+            font-family: Satoshi;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            &:hover {
+                background: style.$yellow;
+                transition: all 0.5s;
+            }
+        }
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: style.$gray;
+      }
+    }
+  }
+}
