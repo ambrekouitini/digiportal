@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/home/initiatives.scss';
 
 // Importation des images
@@ -40,13 +40,37 @@ const Initiatives = () => {
     ]);
 
     const [selectedInitiative, setSelectedInitiative] = useState(null);
+    const [hoveredInitiative, setHoveredInitiative] = useState(null);
+    const [imageVisible, setImageVisible] = useState(false);
 
-    const handleInitiativeClick = (initiative) => {
-        setSelectedInitiative(initiative);
+    useEffect(() => {
+        if (selectedInitiative) {
+            setTimeout(() => setImageVisible(true), 300);
+        } else {
+            setImageVisible(false);
+        }
+    }, [selectedInitiative]);
+
+    const handleInitiativeClick = (initiative, index) => {
+        setSelectedInitiative({ ...initiative, index });
     };
 
     const handleClose = () => {
         setSelectedInitiative(null);
+    };
+
+    const handleMouseEnter = (initiative) => {
+        setHoveredInitiative(initiative);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredInitiative(null);
+    };
+
+    const getPositionClass = (index) => {
+        if (index === 0) return 'top';
+        if (index === initiatives.length - 1) return 'bottom';
+        return 'middle';
     };
 
     return (
@@ -60,13 +84,14 @@ const Initiatives = () => {
             <div className="initiativesContent">
                 <div className="containerLeft">
                     <img 
-                        src={selectedInitiative ? selectedInitiative.image : initiatives[0].image} 
-                        alt={selectedInitiative ? selectedInitiative.title : initiatives[0].title} 
+                        src={hoveredInitiative ? hoveredInitiative.image : (selectedInitiative ? selectedInitiative.image : initiatives[0].image)} 
+                        alt={hoveredInitiative ? hoveredInitiative.title : (selectedInitiative ? selectedInitiative.title : initiatives[0].title)} 
+                        className={imageVisible ? 'visible' : ''}
                     />
                 </div>
                 <div className="containerRight">
                     {selectedInitiative ? (
-                        <div className="singleCard expanded">
+                        <div className={`singleCard expanded active ${getPositionClass(selectedInitiative.index)}`}>
                             <div className="cardHeader">
                                 <h3>{selectedInitiative.title}</h3>
                                 <button onClick={handleClose}></button>
@@ -77,17 +102,23 @@ const Initiatives = () => {
                         initiatives.map((initiative, index) => (
                             <div 
                                 key={index} 
-                                className="singleCard"
-                                onClick={() => handleInitiativeClick(initiative)}
+                                className={`singleCard ${getPositionClass(index)}`}
+                                onClick={() => handleInitiativeClick(initiative, index)}
+                                onMouseEnter={() => handleMouseEnter(initiative)}
+                                onMouseLeave={handleMouseLeave}
                             >
-                                <h3>{initiative.title}</h3>
-                                <span>{initiative.number}</span>
+                                <div className="cardContent">
+                                    <h3>{initiative.title}</h3>
+                                    <div className="numberContainer">
+                                        <span className="number">{initiative.number}</span>
+                                        <div className="plusButton"></div>
+                                    </div>
+                                </div>
                             </div>
                         ))
                     )}
                 </div>
             </div>
-            <a href="#"></a>
         </section>
     );
 };

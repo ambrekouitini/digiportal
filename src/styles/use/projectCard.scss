@@ -2,26 +2,117 @@
 @use "../reset";
 
 .projectCard{
-    > div{
+
+    &:nth-child(4){
+        .container{
+            height: 35%;
+        }
+    }
+
+    &:nth-child(1),&:nth-child(7) {
+        .container{
+            height: 60%;
+        }
+    }
+
+    &:nth-child(2), &:nth-child(3), &:nth-child(5), &:nth-child(6), &:nth-child(8){
+        .container{
+            height: 100%;
+        }
+    }
+
+
+    .container{    
         @include style.flex();
-        padding: 32px;
-        background-color: #F9F8F480;
+        align-items: flex-end;
+        position: sticky;
+        top: 16px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
 
-        .informations{
+        &:hover{
+            > div{
+                padding: 32px 32px 32px 96px;
+
+                .informations{
+                    max-height: 500px;  
+
+                    span{
+                        display: block;
+                    }
+                }
+
+                .button{
+                    width: 60px;
+                    height: 60px;
+                    border: 2px solid style.$gray;
+                    transform: translateX(0);
+                }
+
+                .type{
+                    width: 64px;
+                }
+            }
+        }
+
+
+        > div{
+            position: relative;
             @include style.flex();
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 12px;
+            padding: 16px 16px 16px 96px;
+            background-color: #f9f8f4cc;
+            width: 100%;
+            transition: all 0.2s ease  0.1s;
+            overflow: hidden;
 
-            h2{
-                @include style.textS();
-                font-family: 'inter', sans-serif;
-                text-transform: none;
-                font-weight: 600;
+            .informations{
+                @include style.flex();
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 16px;
+                max-height: 32px;
+                overflow: hidden;
+                transition: all 0.3s ease-out 0.1s;
+
+                h2{
+                    @include style.textS();
+                    font-family: 'inter', sans-serif;
+                    text-transform: none;
+                    font-weight: 600;
+                }
+
+                span{
+                    @include style.textS();
+                    // display: none;
+                }
             }
 
-            span{
-                @include style.textS();
+            .button{
+                width: 0;
+                height: 0;
+                border: none;
+                transform: translateX(100px);
+                transition: all 0.3s ease-out;
+            }
+
+            .type{
+                @include style.flex();
+                @include style.highlight();
+                font-family: 'satoshi', sans-serif;
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+                justify-content: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                text-align: center;
+                color: style.$white;
+                background-color: style.$gray;
+                overflow: hidden;
+                transition: all 0.3s ease-out;
             }
         }
     }

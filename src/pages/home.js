@@ -9,7 +9,7 @@ import ScrollProvider from '../components/home/ScrollProvider';
 import Ressources from '../components/home/Ressources';
 import Equipe from '../components/home/Equipe';
 import Contributions from '../components/home/Contributions';
-import Footer from '../components/home/Footer';
+import Footer from '../components/Footer';
 import Projects from '../components/home/Projects';
 import Initiatives from '../components/home/Initiatives';
 import TextLoop from '../components/home/TextLoop';
@@ -33,3 +33,4 @@ const App = () => {
 };
 
 export default App;
+

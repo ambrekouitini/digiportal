@@ -5,7 +5,7 @@ import '../../styles/projects/header.scss';
 import search from '../../assets/images/search.svg';
 import sort from '../../assets/images/sort.svg';
 
-const Header = ({ selectedCategory, setSelectedCategory }) => {
+const Header = ({ selectedCategory, setSelectedCategory, searchProject }) => {
     const changeState = (category) => {
         setSelectedCategory(category);
     }
@@ -21,6 +21,10 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
         });
     }, [selectedCategory]);
 
+    const handleSearch = (e) => {
+        searchProject(e.target.value);
+    }
+
     return (
         <div className="header">
             <h1>Nos projets</h1>
@@ -31,7 +35,10 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
                     <span onClick={() => changeState('Application')}>Application</span>
                 </div>
                 <div className="search">
-                    <img src={search} alt="search" />
+                    <div className='searchBar'>
+                        <input type="text" placeholder="Rechercher un projet" onChange={handleSearch}  />
+                        <img src={search} alt="search" />
+                    </div>
                     <img src={sort} alt="sort" />
                 </div>
             </div>

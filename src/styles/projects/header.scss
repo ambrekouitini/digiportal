@@ -25,12 +25,71 @@
                 padding: 12px 32px;
                 border: 1px solid style.$gray;
                 cursor: pointer;
+
+                &:hover{
+                    background-color: style.$yellow !important;
+                }
             }
         }
 
         .search{
             @include style.flex();
-            gap: 24px;
+            gap: 12px;
+
+            .searchBar {
+                position: relative;
+    
+                input {
+                    height: 50px;
+                    width: 50px;
+                    border: 2px solid transparent;
+                    font-size: 18px;
+                    letter-spacing: 1px;
+                    outline: none;
+                    border-radius: 40px;
+                    transition: all .5s ease-out;
+                    color: rgba(0, 0, 0, 0);
+                    cursor: pointer;
+    
+                    &::placeholder {
+                        color: style.$medium-gray;
+                        font-size: 18px;
+                        letter-spacing: 1px;
+                        font-weight: 400;
+                        opacity: 0;
+                        transition: opacity .3s ease-out;
+                    }
+    
+                    &:focus {
+                        width: 400px;
+                        padding: 16px;
+                        border-color: style.$gray;
+                        color: style.$gray;
+                        transition: all .5s ease-out;
+                        cursor: text;
+    
+                        &::placeholder {
+                            opacity: 1;
+                            transition: opacity .3s ease-out .2s;
+                        }
+                    }
+    
+                    &:not(:focus) {
+                        transition: 
+                            all .5s ease-out,
+                            border-color .15s ease-out .3s;
+                    }
+                }
+    
+                img {
+                    position: absolute;
+                    right: 16px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    pointer-events: none;
+                    transition: right 0 ease-out 0;
+                }
+            }
 
             img{
                 width: 32px;
@@ -40,3 +99,13 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

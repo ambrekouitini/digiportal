@@ -1,5 +1,5 @@
-@use "../style" as style;
-@use "../reset";
+@use "style" as style;
+@use "reset";
 
 .footer{
     background-color: style.$gray;
