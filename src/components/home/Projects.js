@@ -30,19 +30,22 @@ const Projects = () => {
 
   return (
     <div className="projects">
-      <div className="titleDiv">
-        <h2>Nos projets</h2>
-        <Link to="/projects"><div className="button"></div></Link>
-      </div>
-      {projectsData.map((project, index) => (
-        <Project
-          key={index}
-          projectName={project.name}
-          projectLink={project.link}
-          projectImage={project.image}
-          index={index}
-        />
-      ))}
+        <div className="titleDiv">
+            <h2>Nos projets</h2>
+            <Link to="/projects"><div className="button"></div></Link>
+        </div>
+        <div>
+            {projectsData.map((project, index) => (
+                <Project
+                    key={index}
+                    projectName={project.name}
+                    projectLink={project.link}
+                    projectImage={project.image}
+                    index={index}
+                />
+            ))}
+        </div>
+        <Link to="/projects"><div className="allProjects"></div></Link>
     </div>
   );
 };

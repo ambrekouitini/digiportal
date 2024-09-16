@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import '../../styles/home/Description.scss';
+import { Link } from 'react-router-dom';
 
 // Importation des images
 import usImage from '../../assets/images/us.png';
@@ -47,7 +48,7 @@ const Description = () => {
                 <span className="highlight">Nous</span>
                 <img src={usImage} alt="Us" />
                 pilotons des 
-                <span className="highlight">projets</span>
+                <Link to="/projects"><span className="highlight">projets</span></Link>
                 <img src={projectsImage} alt="Projects" />
                 digitaux avec précision transformant vos
                 <span className="highlight">idées</span>
