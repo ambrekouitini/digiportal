@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import '../../styles/about/canvaEquipe.scss';
 
@@ -38,7 +38,14 @@ const teamMembers = [
   }
 ];
 
-const TeamMemberCard = ({ name, surname, image, tags, description, zIndex, onDragStart, onDragStop }) => {
+const initialPositions = [
+  { x: 50, y: 30 },
+  { x: 920, y: 50 },
+  { x: 120, y: 350 },
+  { x: 820, y: 400 }
+];
+
+const TeamMemberCard = ({ name, surname, image, tags, description, zIndex, onDragStart, onDragStop, initialPosition }) => {
   const nodeRef = useRef(null);
 
   return (
@@ -47,6 +54,7 @@ const TeamMemberCard = ({ name, surname, image, tags, description, zIndex, onDra
       bounds="parent"
       onStart={onDragStart}
       onStop={onDragStop}
+      defaultPosition={initialPosition}
     >
       <div ref={nodeRef} className='singleCard' style={{ zIndex }}>
         <div className="cardImage">
@@ -105,8 +113,6 @@ const CanvaEquipe = () => {
         const newX = cardRef.x + newVelocity.x;
         const newY = cardRef.y + newVelocity.y;
 
-        // Vérifiez les limites ici si nécessaire
-
         cardRef.x = newX;
         cardRef.y = newY;
 
@@ -142,6 +148,7 @@ const CanvaEquipe = () => {
             zIndex={zIndexes[index]}
             onDragStart={() => handleDragStart(index)}
             onDragStop={(e, data) => handleDragStop(index, e, data)}
+            initialPosition={initialPositions[index]}
           />
         ))}
       </div>
