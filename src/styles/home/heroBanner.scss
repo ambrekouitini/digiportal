@@ -5,7 +5,8 @@
   background-color: style.$gray;
   height: 100vh;
   @include style.flex();
-  cursor: url('../../assets/images/cursor.svg'), auto;
+  cursor: url('../../assets/images/cursor.svg') 32 32, auto;
+
   position: relative;
   border-bottom: 2px solid style.$yellow;
 
