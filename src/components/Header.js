@@ -20,20 +20,23 @@ const Header = () => {
         document.querySelector('nav').classList.remove('nav-open');
         document.querySelector('.burger').classList.remove('close');
         document.querySelector('.header').classList.remove('header-open');
-    }, [location]); // Exécute cet effet à chaque changement d'URL
+    }, [location]); // Se déclenche à chaque changement d'URL
 
     useEffect(() => {
-        // Animation de changement de couleur du header au scroll
-        gsap.to(".header", {
-            backgroundColor: "#333333",
-            scrollTrigger: {
-                trigger: ".header",
-                start: "top top", // Déclenche au début de la page
-                end: "1024px top", // Se termine après avoir scrollé 100vh
-                scrub: true, // Animation progressive liée au scroll
-            },
-        });
-    }, []);
+        // Ne jouer l'animation que sur la page d'accueil
+        if (location.pathname === "/") {
+            document.querySelector(".header").style.backgroundColor = "#33333300";
+            gsap.to(".header", {
+                backgroundColor: "#333333",
+                scrollTrigger: {
+                    trigger: ".header",
+                    start: "top top",
+                    end: "1024px top",
+                    scrub: true,
+                },
+            });
+        }
+    },[location]);
 
     return (
         <div className="header">
@@ -56,7 +59,7 @@ const Header = () => {
                         <Link to="/about">A propos</Link>
                     </li>
                     <li>
-                        <Link to="/services">Services</Link>
+                        <Link to="/projects">Nos projets</Link>
                     </li>
                     <li>
                         <Link to="/contact">Contact</Link>

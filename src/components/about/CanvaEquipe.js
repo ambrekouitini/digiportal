@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import '../../styles/about/canvaEquipe.scss';
 
@@ -38,37 +38,122 @@ const teamMembers = [
   }
 ];
 
-const TeamMemberCard = ({ name, surname, image, tags, description }) => (
-  <Draggable bounds="parent">
-    <div className='singleCard'>
-      <div className="cardImage">
-        <img src={image} alt={`${name} ${surname}`} className="idImg" />
-        <span>{name}</span>
-        <span>{surname}</span>
-      </div>
-      <div className="cardTextContainer">
-        <div className='TagContainer'>
-          {tags.map((tag, index) => (
-            <div key={index} className='tag'>{tag}</div>
-          ))}
-        </div>
-        <p>{description}</p>
-      </div>
-    </div>
-  </Draggable>
-);
+const initialPositions = [
+  { x: 50, y: 30 },
+  { x: 920, y: 50 },
+  { x: 120, y: 350 },
+  { x: 820, y: 400 }
+];
 
-const CanvaEquipe = () => (
-  <section className="canvaEquipe">
-    <div className="titleContainer">
-      <h2>Notre équipe</h2>
-    </div>
-    <div className="cardContainer">
-      {teamMembers.map((member, index) => (
-        <TeamMemberCard key={index} {...member} />
-      ))}
-    </div>
-  </section>
-);
+const TeamMemberCard = ({ name, surname, image, tags, description, zIndex, onDragStart, onDragStop, initialPosition }) => {
+  const nodeRef = useRef(null);
+
+  return (
+    <Draggable
+      nodeRef={nodeRef}
+      bounds="parent"
+      onStart={onDragStart}
+      onStop={onDragStop}
+      defaultPosition={initialPosition}
+    >
+      <div ref={nodeRef} className='singleCard' style={{ zIndex }}>
+        <div className="cardImage">
+          <img src={image} alt={`${name} ${surname}`} className="idImg" />
+          <span>{name}</span>
+          <span>{surname}</span>
+        </div>
+        <div className="cardTextContainer">
+          <div className='TagContainer'>
+            {tags.map((tag, index) => (
+              <div key={index} className='tag'>{tag}</div>
+            ))}
+          </div>
+          <p>{description}</p>
+        </div>
+      </div>
+    </Draggable>
+  );
+};
+
+const CanvaEquipe = () => {
+  const [zIndexes, setZIndexes] = useState(teamMembers.map((_, index) => index + 1));
+  const [velocities, setVelocities] = useState(teamMembers.map(() => ({ x: 0, y: 0 })));
+  const cardRefs = useRef(teamMembers.map(() => ({ x: 0, y: 0 })));
+
+  const handleDragStart = (index) => {
+    const newZIndexes = [...zIndexes];
+    const maxZIndex = Math.max(...newZIndexes);
+    newZIndexes[index] = maxZIndex + 1;
+    setZIndexes(newZIndexes);
+  };
+
+  const handleDragStop = (index, e, data) => {
+    const deltaX = data.x - cardRefs.current[index].x;
+    const deltaY = data.y - cardRefs.current[index].y;
+    const newVelocities = [...velocities];
+    newVelocities[index] = { x: deltaX, y: deltaY };
+    setVelocities(newVelocities);
+    cardRefs.current[index] = { x: data.x, y: data.y };
+  };
+
+  useEffect(() => {
+    const animateCards = () => {
+      const newVelocities = velocities.map((velocity, index) => {
+        const friction = 0.95;
+        const newVelocity = {
+          x: velocity.x * friction,
+          y: velocity.y * friction
+        };
+
+        if (Math.abs(newVelocity.x) < 0.1 && Math.abs(newVelocity.y) < 0.1) {
+          return { x: 0, y: 0 };
+        }
+
+        const cardRef = cardRefs.current[index];
+        const newX = cardRef.x + newVelocity.x;
+        const newY = cardRef.y + newVelocity.y;
+
+        cardRef.x = newX;
+        cardRef.y = newY;
+
+        if (cardRef.current) {
+          cardRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
+
+        return newVelocity;
+      });
+
+      setVelocities(newVelocities);
+
+      if (newVelocities.some(v => v.x !== 0 || v.y !== 0)) {
+        requestAnimationFrame(animateCards);
+      }
+    };
+
+    if (velocities.some(v => v.x !== 0 || v.y !== 0)) {
+      requestAnimationFrame(animateCards);
+    }
+  }, [velocities]);
+
+  return (
+    <section className="canvaEquipe">
+      <div className="titleContainer">
+        <h2>Notre équipe</h2>
+      </div>
+      <div className="cardContainer">
+        {teamMembers.map((member, index) => (
+          <TeamMemberCard
+            key={index}
+            {...member}
+            zIndex={zIndexes[index]}
+            onDragStart={() => handleDragStart(index)}
+            onDragStop={(e, data) => handleDragStop(index, e, data)}
+            initialPosition={initialPositions[index]}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default CanvaEquipe;

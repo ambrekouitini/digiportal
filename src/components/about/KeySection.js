@@ -19,7 +19,7 @@ const KeySection = () => {
   const rightContainerItems = [
     'Nous concevons des sites reflétant vos besoins et vos envies.',
     'Nous vous accompagnons dans la réalisation de vos idées.',
-    'Créer et conseiller pour atteindre le meilleur du web et du digital'
+    'Créer et conseiller pour atteindre le meilleur du web et du digital.'
   ];
 
   return (

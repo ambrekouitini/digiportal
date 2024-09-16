@@ -5,6 +5,7 @@
   .titleContainer {
     max-width: 1280px;
     margin: auto;
+    padding-bottom: 64px;
   }
 
   .cardContainer {
@@ -13,13 +14,10 @@
     padding: 64px 80px;
     min-height: 600px;
     position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;;
   }
 
   .singleCard {
-
     @include style.flex();
     padding: 24px;
     gap: 24px;
@@ -28,10 +26,16 @@
     background: style.$white;
     position: absolute;
     cursor: move;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.3s ease;
     max-width: 550px;
     min-height: 300px;
+    border: 2px solid style.$gray;
+
+    &:hover {
+      box-shadow: 0 0 8px 4px rgba(253, 215, 0, 0.25) inset, 0 0 8px 4px rgba(250, 212, 0, 0.25);
+      border: 2px solid rgb(247, 222, 0);
+    }
+
 
     .cardImage {
       display: flex;
