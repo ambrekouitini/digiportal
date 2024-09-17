@@ -9,12 +9,14 @@
   }
 
   .cardContainer {
-    height: 800px;
+    height: 90vh;
     background: style.$gray;
-    padding: 64px 80px;
+    padding: 32px;
     min-height: 600px;
     position: relative;
     overflow: hidden;;
+    border: solid style.$yellow;
+    border-width: 2px 0;
   }
 
   .singleCard {
