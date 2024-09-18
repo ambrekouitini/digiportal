@@ -20,23 +20,7 @@ const Header = () => {
         document.querySelector('nav').classList.remove('nav-open');
         document.querySelector('.burger').classList.remove('close');
         document.querySelector('.header').classList.remove('header-open');
-    }, [location]); // Se déclenche à chaque changement d'URL
-
-    useEffect(() => {
-        // Ne jouer l'animation que sur la page d'accueil
-        if (location.pathname === "/") {
-            document.querySelector(".header").style.backgroundColor = "#33333300";
-            gsap.to(".header", {
-                backgroundColor: "#333333",
-                scrollTrigger: {
-                    trigger: ".header",
-                    start: "top top",
-                    end: "1024px top",
-                    scrub: true,
-                },
-            });
-        }
-    },[location]);
+    }, [location]);
 
     return (
         <div className="header">
