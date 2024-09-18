@@ -14,7 +14,7 @@ const projectsData = [
         year: 2024,
         date: '2024-03-14',
         type: 'Site web',
-        route: '/beauterra',
+        route: '/projects/beauterra',
     },
     {
         title: 'Conception et développements',
@@ -41,7 +41,7 @@ const projectsData = [
         year: 2024,
         date: '2024-06-18',
         type: 'Site web',
-        route: '/beauterra',
+        route: '/projects/beauterra',
     },
     {
         title: 'Conception et développements',
