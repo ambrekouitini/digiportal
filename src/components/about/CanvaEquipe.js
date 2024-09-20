@@ -29,7 +29,7 @@ const teamMembers = [
     surname: 'Kouitini',
     image: ambreImg,
     tags: ['Développeuse Full-stack', 'Alternante'],
-    description: 'Étudiante en 3ème année à l\'IIM en Coding Digital Innovation, Ambre a rejoint Mayoly en octobre 2023 en tant qu\'alternante. Sa mission première : faire évoluer le site intranet. Sa passion pour le codage va au-delà des lignes de code. Spécialisée en Front-End, elle excelle dans l\'UI/UX, le design graphique et la création de maquettes.',
+    description: 'Étudiante en 4ème année à l\'IIM en Coding Digital Innovation, Ambre a rejoint Mayoly en octobre 2023 en tant qu\'alternante. Sa mission première : faire évoluer le site intranet. Sa passion pour le codage va au-delà des lignes de code. Spécialisée en Front-End, elle excelle dans l\'UI/UX, le design graphique et la création de maquettes.',
     position: { x: 550, y: 350 }
   },
   {

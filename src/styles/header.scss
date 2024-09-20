@@ -89,12 +89,12 @@
             @include style.flex();
             flex-direction: column;
             align-items: normal;
-            gap: 64px;
             padding: 64px 96px;
+            height: calc(100vh - 16px - 64px); // screen - padding - header
 
             li, a{
                 @include style.title();
-                @include style.titleXL();
+                font-size: 10vh;
                 display: flex;
                 align-items: center;
                 color: style.$white;
