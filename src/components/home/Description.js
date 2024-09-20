@@ -45,7 +45,7 @@ const Description = () => {
     return (
         <section ref={descriptionRef} className="description">
             <p>
-                <span className="highlight">Nous</span>
+                <Link to="/about"><span className="highlight">Nous</span></Link>
                 <img src={usImage} alt="Us" />
                 pilotons des 
                 <Link to="/projects"><span className="highlight">projets</span></Link>

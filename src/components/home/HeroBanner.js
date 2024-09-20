@@ -46,40 +46,57 @@ const SectionOne = () => {
         drawText(ctxTop, '#FFFFFF');
       } catch (error) {
         console.error('Failed to load font:', error);
-        // Fallback to a system font if Satoshi fails to load
         ctxMiddle.font = ctxTop.font = '900 20vw Arial, sans-serif';
         drawText(ctxMiddle, '#333333');
         drawText(ctxTop, '#FFFFFF');
       }
     };
 
-    const drawRoundedRectangleOnAllCanvases = (x, y) => {
+    const drawRoundedRectangle = (ctx, x, y, width, height, radius) => {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+      ctx.fill();
+    };
+
+    let lastX = null;
+    let lastY = null;
+
+    const drawTrail = (x, y) => {
       const rectWidth = 40;
       const rectHeight = 150;
       const radius = 20;
 
-      const drawRoundedRect = (ctx) => {
-        ctx.beginPath();
-        ctx.moveTo(x + radius, y);
-        ctx.lineTo(x + rectWidth - radius, y);
-        ctx.quadraticCurveTo(x + rectWidth, y, x + rectWidth, y + radius);
-        ctx.lineTo(x + rectWidth, y + rectHeight - radius);
-        ctx.quadraticCurveTo(x + rectWidth, y + rectHeight, x + rectWidth - radius, y + rectHeight);
-        ctx.lineTo(x + radius, y + rectHeight);
-        ctx.quadraticCurveTo(x, y + rectHeight, x, y + rectHeight - radius);
-        ctx.lineTo(x, y + radius);
-        ctx.quadraticCurveTo(x, y, x + radius, y);
-        ctx.closePath();
-      };
+      if (lastX !== null && lastY !== null) {
+        const dx = x - lastX;
+        const dy = y - lastY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const steps = Math.max(Math.floor(distance / 5), 1);
 
-      ctxBottom.fillStyle = 'white';
-      drawRoundedRect(ctxBottom);
-      ctxBottom.fill();
+        for (let i = 0; i < steps; i++) {
+          const t = i / steps;
+          const currX = lastX + dx * t;
+          const currY = lastY + dy * t;
 
-      ctxTop.globalCompositeOperation = 'destination-out';
-      drawRoundedRect(ctxTop);
-      ctxTop.fill();
-      ctxTop.globalCompositeOperation = 'source-over'; 
+          ctxBottom.fillStyle = 'white';
+          drawRoundedRectangle(ctxBottom, currX - rectWidth / 2, currY - rectHeight / 2, rectWidth, rectHeight, radius);
+
+          ctxTop.globalCompositeOperation = 'destination-out';
+          drawRoundedRectangle(ctxTop, currX - rectWidth / 2, currY - rectHeight / 2, rectWidth, rectHeight, radius);
+          ctxTop.globalCompositeOperation = 'source-over';
+        }
+      }
+
+      lastX = x;
+      lastY = y;
     };
 
     const handleMouseMove = (e) => {
@@ -87,7 +104,7 @@ const SectionOne = () => {
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
 
-      drawRoundedRectangleOnAllCanvases(mouseX, mouseY);
+      drawTrail(mouseX, mouseY);
     };
 
     const handleResize = () => {
@@ -95,6 +112,8 @@ const SectionOne = () => {
       ctxBottom.fillStyle = '#333333';
       ctxBottom.fillRect(0, 0, width, height);
       loadAndDrawText();
+      lastX = null;
+      lastY = null;
     };
 
     loadAndDrawText();

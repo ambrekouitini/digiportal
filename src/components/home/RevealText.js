@@ -25,13 +25,13 @@ const RevealText = () => {
         // Animation pour les caractères dans les <span> (noir -> jaune)
         gsap.fromTo(
           spanChars,
-          { color: '#818181' }, 
+          { color: '#F2F2F2' }, 
           {
             color: '#FFD700', 
             scrollTrigger: {
               trigger: element,
               start: 'top 80%',
-              end: 'bottom 20%',
+              end: 'bottom 60%',
               scrub: true,
               markers: false,
             },
@@ -42,14 +42,14 @@ const RevealText = () => {
         // Animation pour les caractères hors des <span> (gris foncé -> gris clair)
         gsap.fromTo(
           nonSpanChars,
-          { color: '#818181' }, 
+          { color: '#F2F2F2' }, 
           {
             color: '#333333', 
             
             scrollTrigger: {
               trigger: element,
               start: 'top 80%',
-              end: 'bottom 20%',
+              end: 'bottom 60%',
               scrub: true,
               markers: false,
             },
